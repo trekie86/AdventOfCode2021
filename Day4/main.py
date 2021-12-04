@@ -1,5 +1,5 @@
 from util.fileutil import read_file_to_string_list
-from itertools import groupby
+from util.list_util import split_lists_by_whitespace
 
 
 class Entry:
@@ -67,7 +67,7 @@ class PlayBoard:
 def part1() -> None:
     vals = read_file_to_string_list("data.txt")
     play_vals = [int(x) for x in vals[0].split(',')]
-    raw_boards = [list(sub) for ele, sub in groupby(vals[2:], key=bool) if ele]
+    raw_boards = split_lists_by_whitespace(vals[2:])
     boards = [PlayBoard(grid) for grid in raw_boards]
 
     game_over = False
@@ -90,7 +90,7 @@ def part1() -> None:
 def part2() -> None:
     vals = read_file_to_string_list("data.txt")
     play_vals = [int(x) for x in vals[0].split(',')]
-    raw_boards = [list(sub) for ele, sub in groupby(vals[2:], key=bool) if ele]
+    raw_boards = split_lists_by_whitespace(vals[2:])
     boards = [PlayBoard(grid) for grid in raw_boards]
 
     winners = []
