@@ -14,7 +14,7 @@ def part1() -> None:
     gamma_bin = ""
     epsilon_bin = ""
     for bit in bits:
-        if bit > size/2:
+        if bit >= size/2:
             gamma_bin += "1"
             epsilon_bin += "0"
         else:
